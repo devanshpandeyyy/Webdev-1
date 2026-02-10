@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Innovative CSS & HTML Showcase</title>
+
+    <style>
+      /* Global Styling */
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eef2f7;
+        color: #2c2c2c;
+        line-height: 1.6;
+      }
+
+      /* Main Container */
+      .container {
+        max-width: 92%;
+        margin: 25px auto;
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Header */
+      #intro-header {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 15px;
+        margin-bottom: 25px;
+      }
+
+      /* Headings */
+      h1,
+      h2,
+      h3 {
+        color: #1e3a8a;
+        border-bottom: 2px solid #dbeafe;
+        padding-bottom: 6px;
+      }
+
+      h2 {
+        text-transform: capitalize;
+      }
+
+      /* Highlight Text */
+      .highlight {
+        background-color: rgba(253, 224, 71, 0.6);
+        padding: 4px 6px;
+        border-radius: 4px;
+      }
+
+      /* Box Model Demo */
+      .box-demo {
+        border: 4px dashed #16a34a;
+        padding: 20px 40px;
+        margin: 15px 0;
+        background-color: #f0fdf4;
+        border-radius: 6px;
+      }
+
+      .box-demo * {
+        border: 1px dotted rgba(0, 0, 0, 0.4);
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background-color: #f8fafc;
+      }
+
+      th,
+      td {
+        border: 1px solid #94a3b8;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #c7d2fe;
+        color: #1e293b;
+      }
+
+      caption {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #334155;
+      }
+
+      /* Lists */
+      .em-font {
+        font-size: 1.15em;
+      }
+
+      /* Text Alignment */
+      .justify-text {
+        text-align: justify;
+      }
+
+      /* Forms */
+      form {
+        text-align: center;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 8px;
+        margin-top: 5px;
+        width: 60%;
+        max-width: 350px;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        width: auto;
+        padding: 8px 18px;
+        margin: 10px;
+        background-color: #2563eb;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      input[type="reset"] {
+        background-color: #64748b;
+      }
+
+      input[type="submit"]:hover,
+      input[type="reset"]:hover {
+        opacity: 0.9;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 15px 0;
+        color: #475569;
+      }
+
+      /* Media */
+      iframe,
+      audio {
+        margin: 10px 0;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="intro-header">
+      <h1>Welcome to the CSS & HTML Interactive Guide 🧑‍💻</h1>
+      <p>
+        A single-page showcase of <strong>HTML Structure</strong> and
+        <strong>CSS Design</strong>.
+      </p>
+    </header>
+
+    <main class="container">
+      <section>
+        <h2 id="css-intro">CSS Basics and Advantages</h2>
+        <p class="justify-text">
+          CSS (Cascading Style Sheets) is used to style HTML and define how
+          elements appear. It enables <strong>code reusability</strong> and
+          <strong>easy maintenance</strong>.
+        </p>
+        <p>
+          The latest CSS standard evolves under the
+          <strong>CSS Snapshot</strong>.
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>The Core of CSS: The Box Model</h2>
+        <p>
+          Every HTML element consists of
+          <strong>content, padding, border, and margin</strong>.
+        </p>
+        <div class="box-demo">
+          <p>
+            This is the <strong>content</strong> area. The surrounding space is
+            <strong>padding</strong>.
+          </p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>Text Styling and CSS Types Demo</h2>
+        <h3 style="color: #dc2626; text-transform: uppercase">
+          Inline CSS Example
+        </h3>
+        <p>
+          This heading demonstrates <strong>inline CSS</strong>, which has the
+          highest priority.
+        </p>
+        <p>
+          The <span class="highlight">.highlight</span> class uses RGBA color
+          transparency.
+        </p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>Experiment 1: Nested and Mixed Lists</h2>
+        <ul class="em-font">
+          <li>
+            Module A: Foundation
+            <ol>
+              <li>HTML: Headings and Paragraphs</li>
+              <li>
+                Basic Formatting: <strong>Bold</strong> and <em>Italic</em>
+              </li>
+            </ol>
+          </li>
+          <li>
+            Module B: Advanced Styling
+            <ul>
+              <li><span class="highlight">External CSS</span></li>
+              <li><span class="highlight">Internal CSS</span></li>
+            </ul>
+          </li>
+          <li>
+            Module C: Multimedia & Links —
+            <a href="#media-demo">Jump to Multimedia Demo</a>
+          </li>
+        </ul>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2 id="table-demo">Experiment 3: Timetable</h2>
+        <table>
+          <caption>Interactive Timetable Showcase</caption>
+          <thead>
+            <tr>
+              <th rowspan="2">Day / Time</th>
+              <th colspan="2">Morning</th>
+              <th colspan="3">Afternoon</th>
+            </tr>
+            <tr>
+              <th>9–10</th>
+              <th>10–11</th>
+              <th>12–1</th>
+              <th>1–2</th>
+              <th>2–3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Monday</th>
+              <td rowspan="2">Maths</td>
+              <td>English</td>
+              <td>LUNCH</td>
+              <td colspan="2">Computer Lab</td>
+            </tr>
+            <tr>
+              <th>Tuesday</th>
+              <td>Physics</td>
+              <td>LUNCH</td>
+              <td>Chemistry</td>
+              <td>
+                <table>
+                  <tr><td>DBMS</td></tr>
+                  <tr><td>Project</td></tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr />
+
+      <section id="form-demo">
+        <h2>Experiment 5: Student Registration Form</h2>
+        <form action="#success-message" method="post">
+          <p>
+            <label for="reg-name">Full Name:</label><br />
+            <input type="text" id="reg-name" required />
+          </p>
+          <p>
+            <label for="reg-email">Email:</label><br />
+            <input type="email" id="reg-email" required />
+          </p>
+          <p>
+            <label for="reg-course">Course:</label><br />
+            <select id="reg-course" required>
+              <option value="">-- Select Course --</option>
+              <option>B.Tech</option>
+              <option>MCA</option>
+            </select>
+          </p>
+          <p>
+            <label for="reg-address">Special Requests:</label><br />
+            <textarea id="reg-address" rows="3" required></textarea>
+          </p>
+          <p>
+            <input type="submit" value="Register Now" />
+            <input type="reset" value="Clear Form" />
+          </p>
+        </form>
+        <h3 id="success-message" style="color: green">
+          Registration Submitted!
+        </h3>
+      </section>
+
+      <hr />
+
+      <section id="media-demo">
+        <h2>Experiment 2: Multimedia Showcase</h2>
+
+        <h3>Video Embed</h3>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="YouTube Video"
+          allowfullscreen
+        ></iframe>
+
+        <h3>Audio</h3>
+        <audio controls>
+          <source src="sample-audio.mp3" type="audio/mpeg" />
+        </audio>
+
+        <h3>External Link</h3>
+        <a
+          href="https://www.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Google
+        </a>
+      </section>
+
+      <hr />
+
+      <footer>
+        <p>&copy; 2025 Devansh Pandey. All Rights Reserved.</p>
+      </footer>
+    </main>
+  </body>
+</html>
