@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flipkart Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f1f3f6;
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      background-color: #2874f0;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .logo span {
+      font-style: italic;
+      font-size: 11px;
+      display: block;
+      color: #ffe500;
+    }
+
+    .search-bar {
+      flex: 1;
+      display: flex;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 9px 14px;
+      border: none;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-bar button {
+      background-color: #ff9f00;
+      border: none;
+      padding: 0 18px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---- BANNER ---- */
+    .banner {
+      background: linear-gradient(135deg, #2874f0 0%, #1a5cc8 100%);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-size: 18px;
+    }
+
+    .banner h2 {
+      font-size: 28px;
+    }
+
+    .banner p {
+      font-size: 14px;
+      margin-top: 6px;
+      opacity: 0.85;
+    }
+
+    /* ---- CATEGORIES ---- */
+    .categories {
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 16px;
+      overflow-x: auto;
+      gap: 10px;
+    }
+
+    .category-item {
+      text-align: center;
+      cursor: pointer;
+      min-width: 70px;
+    }
+
+    .category-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #e0e0e0;
+    }
+
+    .category-item p {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #333;
+    }
+
+    .category-item:hover p {
+      color: #2874f0;
+    }
+
+    /* ---- SECTION TITLE ---- */
+    .section-title {
+      background: white;
+      padding: 14px 20px 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #212121;
+    }
+
+    /* ---- PRODUCTS GRID ---- */
+    .products-section {
+      background: white;
+      padding: 14px 20px 20px;
+      margin-bottom: 10px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .product-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 12px;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+      background: white;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+    }
+
+    .product-card .name {
+      font-size: 13px;
+      color: #212121;
+      margin-top: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .product-card .price {
+      font-size: 15px;
+      font-weight: bold;
+      color: #212121;
+      margin-top: 4px;
+    }
+
+    .product-card .original-price {
+      font-size: 12px;
+      color: #878787;
+      text-decoration: line-through;
+      display: inline;
+    }
+
+    .product-card .discount {
+      font-size: 12px;
+      color: #388e3c;
+      display: inline;
+      margin-left: 5px;
+    }
+
+    .product-card .rating {
+      background: #388e3c;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    /* ---- DEALS BANNER ---- */
+    .deals-banner {
+      background: #ff6161;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* ---- ADD TO CART BUTTON ---- */
+    .add-to-cart {
+      background-color: #ff9f00;
+      color: white;
+      border: none;
+      padding: 6px 0;
+      width: 100%;
+      margin-top: 8px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .add-to-cart:hover {
+      background-color: #e68a00;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background-color: #172337;
+      color: #878787;
+      padding: 30px 40px;
+      margin-top: 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 24px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 13px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #878787;
+      text-decoration: none;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .footer-col a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #2f3f53;
+      margin-top: 24px;
+      padding-top: 14px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* ---- TOAST ---- */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-size: 14px;
+      display: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="#">Flipkart <span>Explore Plus</span></a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more" />
+      <button>🔍</button>
+    </div>
+    <div class="nav-links">
+      <a href="#">Login</a>
+      <a href="#">Become a Seller</a>
+      <a href="#">🛒 Cart</a>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <h2>Big Billion Days Sale 🎉</h2>
+    <p>Massive discounts on electronics, fashion, mobiles & more!</p>
+  </div>
+
+  <!-- CATEGORIES -->
+  <div class="categories">
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/2874f0/ffffff?text=📱" alt="Mobiles">
+      <p>Mobiles</p>
+    </div>
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/ff9f00/ffffff?text=💻" alt="Laptops">
+      <p>Laptops</p>
+    </div>
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/f44336/ffffff?text=👗" alt="Fashion">
+      <p>Fashion</p>
+    </div>
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/4caf50/ffffff?text=🏠" alt="Home">
+      <p>Home</p>
+    </div>
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/9c27b0/ffffff?text=📺" alt="TVs">
+      <p>TVs</p>
+    </div>
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/00bcd4/ffffff?text=🎧" alt="Electronics">
+      <p>Electronics</p>
+    </div>
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/ff5722/ffffff?text=👟" alt="Shoes">
+      <p>Shoes</p>
+    </div>
+    <div class="category-item">
+      <img src="https://via.placeholder.com/60/607d8b/ffffff?text=🛒" alt="Grocery">
+      <p>Grocery</p>
+    </div>
+  </div>
+
+  <!-- DEALS BANNER -->
+  <div class="deals-banner">🔥 Flash Sale — Ends in 02:45:30 🔥</div>
+
+  <!-- PRODUCTS: Electronics -->
+  <div class="products-section">
+    <div class="section-title">Best Deals on Electronics</div>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/e3eaf5/2874f0?text=Phone" alt="Smartphone">
+        <div class="name">Samsung Galaxy M34 5G</div>
+        <div class="price">₹18,999</div>
+        <div class="original-price">₹26,999</div>
+        <div class="discount"> 30% off</div>
+        <div class="rating">⭐ 4.3</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/fff3e0/ff9f00?text=Laptop" alt="Laptop">
+        <div class="name">HP 15s Intel Core i5</div>
+        <div class="price">₹49,990</div>
+        <div class="original-price">₹64,990</div>
+        <div class="discount"> 23% off</div>
+        <div class="rating">⭐ 4.5</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/fce4ec/f44336?text=Earbuds" alt="Earbuds">
+        <div class="name">boAt Airdopes 141 TWS</div>
+        <div class="price">₹1,299</div>
+        <div class="original-price">₹3,499</div>
+        <div class="discount"> 63% off</div>
+        <div class="rating">⭐ 4.1</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/e8f5e9/4caf50?text=Smart+TV" alt="Smart TV">
+        <div class="name">Redmi 43" Full HD Smart TV</div>
+        <div class="price">₹22,999</div>
+        <div class="original-price">₹32,999</div>
+        <div class="discount"> 30% off</div>
+        <div class="rating">⭐ 4.4</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/ede7f6/9c27b0?text=Watch" alt="Smartwatch">
+        <div class="name">Noise ColorFit Ultra 2</div>
+        <div class="price">₹2,499</div>
+        <div class="original-price">₹6,999</div>
+        <div class="discount"> 64% off</div>
+        <div class="rating">⭐ 4.0</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/e0f7fa/00bcd4?text=Camera" alt="Camera">
+        <div class="name">Canon EOS 1500D DSLR</div>
+        <div class="price">₹34,995</div>
+        <div class="original-price">₹44,995</div>
+        <div class="discount"> 22% off</div>
+        <div class="rating">⭐ 4.6</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRODUCTS: Fashion -->
+  <div class="products-section">
+    <div class="section-title">Top Picks in Fashion</div>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/fce4ec/e91e63?text=T-Shirt" alt="T-Shirt">
+        <div class="name">Roadster Men's T-Shirt</div>
+        <div class="price">₹399</div>
+        <div class="original-price">₹999</div>
+        <div class="discount"> 60% off</div>
+        <div class="rating">⭐ 4.2</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/e8eaf6/3f51b5?text=Jeans" alt="Jeans">
+        <div class="name">Levis 511 Slim Fit Jeans</div>
+        <div class="price">₹1,679</div>
+        <div class="original-price">₹3,299</div>
+        <div class="discount"> 49% off</div>
+        <div class="rating">⭐ 4.4</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/fff8e1/ffc107?text=Saree" alt="Saree">
+        <div class="name">Kalakari Silk Blend Saree</div>
+        <div class="price">₹799</div>
+        <div class="original-price">₹1,999</div>
+        <div class="discount"> 60% off</div>
+        <div class="rating">⭐ 3.9</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/ffebee/ff5722?text=Shoes" alt="Shoes">
+        <div class="name">Nike Air Max Running Shoes</div>
+        <div class="price">₹3,999</div>
+        <div class="original-price">₹6,495</div>
+        <div class="discount"> 38% off</div>
+        <div class="rating">⭐ 4.5</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/f3e5f5/7b1fa2?text=Bag" alt="Bag">
+        <div class="name">Lavie Women's Handbag</div>
+        <div class="price">₹899</div>
+        <div class="original-price">₹2,500</div>
+        <div class="discount"> 64% off</div>
+        <div class="rating">⭐ 4.0</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x160/e0f2f1/009688?text=Cap" alt="Cap">
+        <div class="name">U.S. Polo Assn. Baseball Cap</div>
+        <div class="price">₹349</div>
+        <div class="original-price">₹699</div>
+        <div class="discount"> 50% off</div>
+        <div class="rating">⭐ 4.1</div>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Corporate Info</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="#">Payments</a>
+        <a href="#">Shipping</a>
+        <a href="#">Cancellation</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Policy</h4>
+        <a href="#">Return Policy</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">T&C</a>
+        <a href="#">Report Infringement</a>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+        <a href="#">Instagram</a>
+      </div>
+      <div class="footer-col">
+        <h4>Become a Seller</h4>
+        <a href="#">Sell on Flipkart</a>
+        <a href="#">Advertise</a>
+        <a href="#">Gift Cards</a>
+        <a href="#">Help Center</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Flipkart Clone — Made for learning purposes only.
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">✅ Item added to cart!</div>
+
+  <script>
+    function addToCart() {
+      const toast = document.getElementById('toast');
+      toast.style.display = 'block';
+      setTimeout(() => toast.style.display = 'none', 2000);
+    }
+  </script>
+
+</body>
+</html>
